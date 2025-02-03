@@ -1,0 +1,12 @@
+<section class="listing">
+    <img
+      class="listing-photo"
+      [src]="design.image"
+      [routerLink]="['/details', design.id]"
+      alt="Exterior photo of {{ design.name }}"
+      crossorigin
+    />
+    <h2 class="listing-heading">{{ design.name }}</h2>
+    <p class="listing-location">{{ design.height }}, {{ design.width }}</p>
+    
+  </section>
