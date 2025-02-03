@@ -1,0 +1,24 @@
+<article>
+  <img class="listing-photo" [src]="design?.image" />
+  <section class="listing-description">
+    <h2 class="listing-heading">{{ design?.name }}</h2>
+  </section>
+  <section class="listing-features">
+    <h2 class="section-heading">Price</h2>
+    <p>Resell price: {{ design?.estimatedPrice }}</p>
+  </section>
+  <section class="listing-apply">
+    <h2 class="section-heading">Place a bid to buy this Design!</h2>
+    <form [formGroup]="applyForm" (submit)="submitApplication()">
+      <label for="first-name">First Name</label>
+      <input required id="first-name" type="text" formControlName="firstName" />
+      <label for="last-name">Last Name</label>
+      <input required id="last-name" type="text" formControlName="lastName" />
+      <label for="email">Email</label>
+      <input required id="email" type="email" formControlName="email" />
+      <label for="amount">Amount</label>
+      <input required id="amount" min="{{design?.estimatedPrice}}" type="number" formControlName="amount" />
+      <button type="submit" class="primary">Apply now</button>
+    </form>
+  </section>
+</article>

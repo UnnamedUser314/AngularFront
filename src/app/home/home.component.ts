@@ -13,12 +13,10 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-  housingLocationList: HousingLocation[] = [];
   designList: Designs[] = [];
   housingService: HousingService = inject(HousingService);
 
   constructor(){
-    this.housingLocationList = this.housingService.getAllHousingLocations();
     this.housingService.getEntities().subscribe((data) => {
       this.designList = data; 
     });
