@@ -1,11 +1,13 @@
 <article>
-    <img class="listing-photo" [src]="design?.image">
+
     <section class="listing-description">
         <h2 class="listing-heading">{{design?.name}}</h2>
         
     </section>
+    <img class="listing-photo" [src]="design?.image">
+    
     <section class="listing-features">
-        <h2 class="section-heading">About this housing location</h2>
+        <h2 class="section-heading">About this design</h2>
         <ul>
             <li>Width of the {{design?.name}}: {{design?.width}}</li>
             <li>Height of the {{design?.name}}: {{design?.height}}</li>

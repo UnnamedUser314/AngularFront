@@ -11,7 +11,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   selector: 'app-details',
   imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl:'./details.component.html',
-  styles: ``
+  styleUrl: `./details.component.css`
 })
 export class DetailsComponent {
   housingService = inject(HousingService);
