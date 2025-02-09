@@ -2,7 +2,9 @@
     margin: 0;
     padding: 0;
   }
-  
+  html {
+    background-image: url('assets/main_bg.jpg');
+  }
   body {
     font-family: 'Be Vietnam Pro', sans-serif;
   }

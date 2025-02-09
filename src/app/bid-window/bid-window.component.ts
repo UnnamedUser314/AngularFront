@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { HousingService } from '../housing.service';
+import { AuthenticationService } from '../authentication.service';
+import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { Designs } from '../designs';
 
@@ -14,6 +16,9 @@ import { Designs } from '../designs';
 export class BidWindowComponent {
   housingService = inject(HousingService);  
   route: ActivatedRoute = inject(ActivatedRoute);
+  authService: AuthenticationService = inject(AuthenticationService);
+  router: Router = inject(Router);
+  isAuth: boolean = false;
   design: Designs | undefined;
   housingLocationId: number;
 
@@ -26,6 +31,12 @@ export class BidWindowComponent {
 
   constructor(){
     this.housingLocationId = Number(this.route.snapshot.params["id"]);
+    this.isAuth = this.authService.isAuthenticated();
+
+    if(!this.isAuth){
+      this.router.navigate(['/login']); 
+      return;
+    }
     
     this.housingService.getEntity(this.housingLocationId).subscribe((data) => {
       this.design = data; 

@@ -25,7 +25,7 @@ export class LoginComponent {
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
 
-    // ✅ Redirect if already logged in
+    
     if (this.authService.isAuthenticated()) {
       this.router.navigate(['/home']);
     }
@@ -35,7 +35,7 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe({
         next: () => {
-          this.router.navigate(['/home']); // ✅ Navigate after successful login
+          this.router.navigate(['/home']); 
         },
         error: () => {
           this.errorMessage = 'Invalid credentials';
